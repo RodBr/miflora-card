@@ -1,6 +1,6 @@
 # MiFlora Card
 
-A Home Assistant Lovelace card to report MiFlora miflora sensors
+A Home Assistant Lovelace card to report MiFlora sensors
 
 ![miflora-card](miflora-card.png)
 

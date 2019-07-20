@@ -67,8 +67,15 @@ class MifloraCard extends HTMLElement {
         for (var i = 0; i < _sensors.length; i++) {
             var _name = _sensors[i][0];
             var _sensor = _sensors[i][1];
-            var _state = hass.states[_sensor].state;
-            var _uom = hass.states[_sensor].attributes.unit_of_measurement || "";
+            var _state = '';
+            var _uom = '';
+            if (hass.states[_sensor]) {
+                _state = hass.states[_sensor].state;
+                _uom = hass.states[_sensor].attributes.unit_of_measurement || "";
+            } else {
+                _state = 'Invalid Sensor';
+            }
+
             var _icon = this._computeIcon(_name, _state);
             var _alertStyle = '';
             var _alertIcon = '';

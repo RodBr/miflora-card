@@ -53,10 +53,6 @@ class MifloraCard extends HTMLElement {
         var _minMoisture = config.min_moisture;
         var _minConductivity = config.min_conductivity;
         var _minTemperature = config.min_termperature;
-        var _sensors = [];
-        for (var i = 0; i < config.entities.length; i++) {
-            _sensors.push(config.entities[i].split(":")); // Split name away from sensor id
-        }
 
         this.shadowRoot.getElementById('container').innerHTML = `
             <div class="content clearfix">
@@ -64,9 +60,14 @@ class MifloraCard extends HTMLElement {
             </div>
             `;
 
-        for (var i = 0; i < _sensors.length; i++) {
-            var _name = _sensors[i][0];
-            var _sensor = _sensors[i][1];
+        for (var i = 0; i < config.entities.length; i++) {
+            var _name = config.entities.[i]['type'];
+            var _sensor = config.entities.[i]['entity'];
+            if (config.entities[i]['name']) {
+                var _display_name = config.entities[i]['name'];
+            } else {
+                var _display_name = _name[0].toUpperCase() + _name.slice(1);
+            }
             var _state = '';
             var _uom = '';
             if (hass.states[_sensor]) {
@@ -103,14 +104,14 @@ class MifloraCard extends HTMLElement {
             this.shadowRoot.getElementById('sensors').innerHTML += `
                 <div id="sensor${i}" class="sensor">
                     <div class="icon"><ha-icon icon="${_icon}"></ha-icon></div>
-                    <div class="name">${_name}</div>
+                    <div class="name">${_display_name}</div>
                     <div class="state" style="${_alertStyle}">${_alertIcon}${_state}${_uom}</div>
                 </div>
                 `
         }
 
-        for (var i = 0; i < _sensors.length; i++) {
-            this.shadowRoot.getElementById('sensor' + [i]).onclick = this._click.bind(this, _sensors[i][1]);
+        for (var i = 0; i < config.entities.length; i++) {
+            this.shadowRoot.getElementById('sensor' + [i]).onclick = this._click.bind(this, config.entities[i]['entity']);
         }
     }
 

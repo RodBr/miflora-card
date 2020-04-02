@@ -49,10 +49,10 @@ class MifloraCard extends HTMLElement {
     set hass(hass) {
         const config = this.config;
 
-        var _maxMoisture = config.max_moisture;
-        var _minMoisture = config.min_moisture;
-        var _minConductivity = config.min_conductivity;
-        var _minTemperature = config.min_termperature;
+        var _maxMoisture = prseFloat(config.max_moisture);
+        var _minMoisture = parseFloat(config.min_moisture);
+        var _minConductivity = parseFloat(config.min_conductivity);
+        var _minTemperature = parseFloat(config.min_termperature);
 
         this.shadowRoot.getElementById('container').innerHTML = `
             <div class="content clearfix">
@@ -71,7 +71,7 @@ class MifloraCard extends HTMLElement {
             var _state = '';
             var _uom = '';
             if (hass.states[_sensor]) {
-                _state = hass.states[_sensor].state;
+                _state = parseFloat(hass.states[_sensor].state);
                 _uom = hass.states[_sensor].attributes.unit_of_measurement || "";
             } else {
                 _state = 'Invalid Sensor';

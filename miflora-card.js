@@ -132,31 +132,34 @@ class MifloraCard extends HTMLElement {
 
         style.textContent = `
             ha-card {
-            position: relative;
-            padding: 0;
-            background-size: 100%;
+                position: relative;
+                padding: 0;
+                background-size: 100%;
             }
             ha-card .header {
-            width: 100%;
+                width: 100%;
             }
             .image {
                 float: right;
-                margin-left: 8px;
-                margin-right: 8px;
-                margin-bottom: 8px;
-                width: 115px;
-                height: 115px;
+                margin-left: 15px;
+                margin-right: 15px;
+                margin-bottom: 15px;
+                width: 125px;
+                height: 125px;
                 border-radius: 6px;
             }
             .sensor {
-            display: flex;
-            cursor: pointer;
+                display: flex;
+                cursor: pointer;
+                padding-bottom: 10px;
             }
             .icon {
+                margin-left: 10px;
                 color: var(--paper-item-icon-color);
             }
             .name {
                 margin-top: 3px;
+                margin-left: 10px;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;

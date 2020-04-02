@@ -95,7 +95,7 @@ class MifloraCard extends HTMLElement {
                     _alertIcon = '&#9660; ';
                 }
             }
-            if (_name == 'termperature') {
+            if (_name == 'temperature') {
                 if (_state < _minTemperature) {
                     _alertStyle = ';color:red';
                     _alertIcon = '&#9660; ';

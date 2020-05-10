@@ -1,13 +1,15 @@
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/custom-components/hacs)
+
+
 # MiFlora Card
 
 A Home Assistant Lovelace card to report MiFlora sensors
 
-![miflora-card](miflora-card.jpg)
-
+![miflora-card](https://github.com/lbouriez/lovelace-miflora-card/raw/master/miflora-card.png)
 
 ## Options
 
-| Name             | Type    | Default      | Description                                   |
+| Name             | Type    | Requirement  | Description                                   |
 | ---------------- | ------- | ------------ | --------------------------------------------- |
 | type             | string  | **Required** | `custom:miflora-card`                         |
 | title            | string  | **Required** | Name of the plant being monitored             |
@@ -21,14 +23,12 @@ A Home Assistant Lovelace card to report MiFlora sensors
 
 ## Installation
 
-1. Install the `miflora-card` component by copying `miflora-card.js` to `<config directory>/www/miflora-card.js`
+Use [HACS](https://hacs.xyz) or follow this [guide](https://github.com/thomasloven/hass-config/wiki/Lovelace-Plugins)
 
-
-2. Link `miflora-card` inside your `ui-lovelace.yaml`
 
 ```yaml
 resources:
-  - url: /local/miflora-card.js
+  - url: /hacsfiles/lovelace-miflora-card/miflora-card.js
     type: js
 ```
 
@@ -43,10 +43,10 @@ resources:
   min_conductivity: 350
   min_temperature: 12
   entities:
-  - moisture:sensor.miflora_1_moisture
-  - intensity:sensor.miflora_1_light_intensity
-  - temperature:sensor.miflora_1_temperature
-  - conductivity:sensor.miflora_1_conductivity
-  - battery:sensor.miflora_1_battery
+  - moisture: sensor.miflora_1_moisture
+  - intensity: sensor.miflora_1_light_intensity
+  - temperature: sensor.miflora_1_temperature
+  - conductivity: sensor.miflora_1_conductivity
+  - battery: sensor.miflora_1_battery
 
 ```

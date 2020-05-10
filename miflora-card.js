@@ -1,4 +1,4 @@
-/* miflora-card - version: v0.1.0 */
+console.info("%c  MIFLORA-CARD  \n%c Version 0.1.2 ", "color: orange; font-weight: bold; background: black", "color: white; font-weight: bold; background: dimgray");
 class MifloraCard extends HTMLElement {
     constructor() {
         super();
@@ -49,7 +49,7 @@ class MifloraCard extends HTMLElement {
     set hass(hass) {
         const config = this.config;
 
-        var _maxMoisture = prseFloat(config.max_moisture);
+        var _maxMoisture = parseFloat(config.max_moisture);
         var _minMoisture = parseFloat(config.min_moisture);
         var _minConductivity = parseFloat(config.min_conductivity);
         var _minTemperature = parseFloat(config.min_termperature);
@@ -61,8 +61,8 @@ class MifloraCard extends HTMLElement {
             `;
 
         for (var i = 0; i < config.entities.length; i++) {
-            var _name = config.entities.[i]['type'];
-            var _sensor = config.entities.[i]['entity'];
+            var _name = config.entities[i]['type'];
+            var _sensor = config.entities[i]['entity'];
             if (config.entities[i]['name']) {
                 var _display_name = config.entities[i]['name'];
             } else {
@@ -104,7 +104,7 @@ class MifloraCard extends HTMLElement {
             this.shadowRoot.getElementById('sensors').innerHTML += `
                 <div id="sensor${i}" class="sensor">
                     <div class="icon"><ha-icon icon="${_icon}"></ha-icon></div>
-                    <div class="name">${_display_name}</div>
+                    <div class="name">${_display_name[0].toUpperCase()}${_display_name.slice(1)}</div>
                     <div class="state" style="${_alertStyle}">${_alertIcon}${_state}${_uom}</div>
                 </div>
                 `

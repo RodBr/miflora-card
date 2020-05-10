@@ -20,6 +20,14 @@ A Home Assistant Lovelace card to report MiFlora sensors
 | min_temperature  | integer | Optional     | Minimum temperature for this plant            |
 | entities         | list    | **Required** | A list sensors to be monitored                |
 
+### Entities
+
+| Name             | Type    | Requirement  | Description                                   |
+| ---------------- | ------- | ------------ | --------------------------------------------- |
+| entity           | string  | **Required** | Entity ID                                     |
+| type             | string  | **Required** | Type of entity                                |
+| name             | string  | Optional     | Custom name if you want to change it          |
+
 
 ## Installation
 
@@ -43,10 +51,15 @@ resources:
   min_conductivity: 350
   min_temperature: 12
   entities:
-  - moisture: sensor.miflora_1_moisture
-  - intensity: sensor.miflora_1_light_intensity
-  - temperature: sensor.miflora_1_temperature
-  - conductivity: sensor.miflora_1_conductivity
-  - battery: sensor.miflora_1_battery
-
+  - entity: sensor.miflora_1_moisture
+    type: moisture
+  - entity: sensor.miflora_1_light_intensity
+    type: intensity
+  - entity: sensor.miflora_1_temperature
+    type: temperature
+  - entity: sensor.miflora_1_conductivity
+    type: conductivity
+    name: Fertility
+  - entity: sensor.miflora_1_battery
+    type: battery
 ```

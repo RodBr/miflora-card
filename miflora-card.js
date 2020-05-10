@@ -104,7 +104,7 @@ class MifloraCard extends HTMLElement {
             this.shadowRoot.getElementById('sensors').innerHTML += `
                 <div id="sensor${i}" class="sensor">
                     <div class="icon"><ha-icon icon="${_icon}"></ha-icon></div>
-                    <div class="name">${_display_name}</div>
+                    <div class="name">${_display_name[0].toUpperCase()}${_display_name.slice(1)}</div>
                     <div class="state" style="${_alertStyle}">${_alertIcon}${_state}${_uom}</div>
                 </div>
                 `

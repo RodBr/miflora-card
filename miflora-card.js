@@ -61,8 +61,8 @@ class MifloraCard extends HTMLElement {
             `;
 
         for (var i = 0; i < config.entities.length; i++) {
-            var _name = config.entities.[i]['type'];
-            var _sensor = config.entities.[i]['entity'];
+            var _name = config.entities[i]['type'];
+            var _sensor = config.entities[i]['entity'];
             if (config.entities[i]['name']) {
                 var _display_name = config.entities[i]['name'];
             } else {

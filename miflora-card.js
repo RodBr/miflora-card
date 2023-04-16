@@ -181,7 +181,7 @@ class MifloraCard extends HTMLElement {
             }
             `;
         plantimage.innerHTML = `
-            <img class="image" src=/local/${config.image}>  
+            <img class="image" src="/local/${config.image}">  
             `;
 
         content.id = "container";
